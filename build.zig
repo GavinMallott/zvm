@@ -2,8 +2,9 @@ const std = @import("std");
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
+
     const mod = b.addModule("zvm", .{
-        .root_source_file = b.path("src/root.zig"),
+        .root_source_file = b.path("src/zvm.zig"),
         .target = target,
     });
     const exe = b.addExecutable(.{
@@ -17,6 +18,9 @@ pub fn build(b: *std.Build) void {
             },
         }),
     });
+    exe.linkSystemLibrary("curl");
+
+    b.getInstallStep().dependOn(&runShellScript(b).step);
 
     b.installArtifact(exe);
 
@@ -46,4 +50,17 @@ pub fn build(b: *std.Build) void {
     const test_step = b.step("test", "Run tests");
     test_step.dependOn(&run_mod_tests.step);
     test_step.dependOn(&run_exe_tests.step);
+}
+
+fn runShellScript(b: *std.Build) *std.Build.Step.Run {
+    const script_path = "install.sh";
+
+    const run = b.addSystemCommand(&[_][]const u8{
+        "/bin/bash",
+        script_path,
+    });
+
+    run.step.name = "run install.sh script";
+
+    return run;
 }
