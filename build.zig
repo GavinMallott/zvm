@@ -18,11 +18,17 @@ pub fn build(b: *std.Build) void {
             },
         }),
     });
+
     exe.linkSystemLibrary("curl");
 
-    b.getInstallStep().dependOn(&runShellScript(b).step);
 
-    b.installArtifact(exe);
+    const exe_artifact = b.addInstallArtifact(exe, .{});
+    const install_script = b.addSystemCommand(&.{
+        "/usr/bin/bash", "install.sh", // or "./post-build.sh" if executable and in root
+    });
+
+    install_script.step.dependOn(&exe_artifact.step);
+    b.getInstallStep().dependOn(&install_script.step);
 
     const run_step = b.step("run", "Run the app");
 
@@ -52,15 +58,3 @@ pub fn build(b: *std.Build) void {
     test_step.dependOn(&run_exe_tests.step);
 }
 
-fn runShellScript(b: *std.Build) *std.Build.Step.Run {
-    const script_path = "install.sh";
-
-    const run = b.addSystemCommand(&[_][]const u8{
-        "/bin/bash",
-        script_path,
-    });
-
-    run.step.name = "run install.sh script";
-
-    return run;
-}

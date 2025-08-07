@@ -1,8 +1,16 @@
 const std = @import("std");
-const zvm = @import("ZVM.zig");
+const c = @cImport({
+    @cInclude("curl/curl.h");
+});
+
+
 const printf = std.debug.print;
 
-const CONFIG_FILE = ".zvm.yaml";
+
+pub const ZIG_PUB_KEY = "RWSGOq2NVecA2UPNdBUZykf1CCb147pkmdtYxgb3Ti+JO/wCYvhbAb/U";
+pub const MIRRORS = [_][]const u8{"none", "one"};
+pub const CONFIG_FILE = ".zvm.zon";
+
 
 pub fn main() !void {
     var args = try std.process.ArgIterator.initWithAllocator(std.heap.page_allocator);
@@ -11,30 +19,29 @@ pub fn main() !void {
     var config: [1024]u8 = undefined;
     var z = ZVM.init();
     
-    const ff = try z.read_file_if_exists(config[0..]);
-    const str = if (ff) "actually" else "not";
-    printf("File was {s} found\n", .{str}); 
+    _ = try z.read_file_if_exists(config[0..]);
 
     _ = args.next();
-
-    printf("Main function sees config: {s}\n", .{z.version});
 
     while (args.next()) |arg| {
         if (std.mem.eql(u8, arg, "version") or std.mem.eql(u8, arg, "-v")) {
             printf("Active Zig Version: {s}\n", .{z.zvm_version()});
         }
     }
+    z.update_mirrors();
 }
 
-pub const ZVM = struct {
 
+pub const ZVM = struct {
     version: []const u8,
     dir: []const u8,
+    mirrors: []const []const u8,
 
     pub fn init() ZVM {
         return .{
             .version = "0.15.0-dev",
             .dir = "/home/gavin/.zvm",
+            .mirrors = MIRRORS[0..],
         };
     }
 
@@ -64,5 +71,13 @@ pub const ZVM = struct {
             self.version = version_str;
         }
         return true;
+    }
+
+    fn update_mirrors(self: *@This()) void {
+
+        printf("Mirrors:\n", .{});
+        for (self.mirrors) |mirror| {
+            printf(" - {s}\n", .{mirror});
+        }
     }
 };

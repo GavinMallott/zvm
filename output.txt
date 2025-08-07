@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+    <title>Gavin Mallott</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,600,800" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/creative.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://kit.fontawesome.com/591e4f221d.js" crossorigin="anonymous"></script>
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Gavin Mallott</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#skills">Skills</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#education">Education</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#work">Work</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#connect">Connect</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+   
+    <!-- Section One -->
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+		    <h1 id="homeHeading">Hi.<br /> I'm Gavin Mallott.</h1>
+                <br />
+                <p>I’m a Creator from Minnesota.</p>
+                <p><a href="#about" class="btn btn-primary btn-xl page-scroll">More About Me</a></p>
+            </div>
+	</header>
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2 class="section-heading text-center">
+                      <img src="img/logo-gavin.png" alt="Gavin Logo" width="100" /><br /><br />
+                      Who am I?
+                    </h2>
+                    <hr class="light">
+                    <p>I am an engineer, programmer, and life-long learner. I was drawn to programming, and subsequently my passion for computers, because I enjoy solving problems. For me, computer programming is simply an extension of my real-world problem solving skills. When I’m presented with a problem I tackle it using logic, critical thinking, and experimentation.</p>
+
+		    <p>As an electrical and biomedical engineering student, I have had the opportunity to take a deep look into a variety of subjects: mathematics, physics, electronics, chemistry, biology, software design, and even nanotechnology. Being able to draw from a wide range of subjects and synthesize that knowledge to create something new is what engineering, and problem solving, is all about.</p>
+
+                    <p>My love of solving problems has fed into my love of learning. From a young age I have wanted to learn as much about everything as possible, because the more I know, the more problems I can solve. To quote Albert Einstein, <strong>“No problem can be solved by the same consciousness that created it.”</strong></p>
+                    
+                    <p class="text-center"><a href="#skills" class="page-scroll btn btn-default btn-xl sr-button">Read About My Skills</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Section One -->
+    <section id="skills">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-heading text-center">Skills</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            
+            <!-- Row One -->
+            <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-terminal text-primary sr-icons"></i>
+                        <h3>Programming</h3>
+                        <p class="text-muted">I've been interested in programming since my dad taught me HTML and CSS in 3rd grade. Between university classes and my own exploration, I have experince with Python, C/C++, Javascript, and Assembly.  I have used them to encrypt text documents, perform chemical stoichiometry, and program microcontrollers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-square-root-variable text-primary sr-icons"></i>
+                        <h3>Applied Mathematics</h3>
+                        <p class="text-muted">As an engineer, I have a strong appreciation for math and physics. In fact, differential equations was my favorite class in my undergrad. I have experience working with discrete math, signal processing, statistics, chemistry, physics, electric power, nanotechnology, and electrodynamics.</p>
+		    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-cubes text-primary sr-icons"></i>
+                        <h3>Modeling and Simulation</h3>
+                        <p class="text-muted">I have worked with many different 3D modeling and simulation softwares including AutoCAD, Autodesk Inventor, SolidWorks, Matlab, and COMSOL Multiphysics. I have also used LTSpice, LabView, and Altium Designer for circuit simulation and PCB design.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Row Two -->
+            <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-bolt text-primary sr-icons"></i>
+                        <h3>Electronics</h3>
+			<p class="text-muted">As an electrical engineer, I have a lot of experience with electronics. In 2017, I led a team of engineering freshman to win a <a href="https://www.instagram.com/p/Bc-RWInBKli/">quadcopter building competition</a> at my first university. I have taken classes on circuit design and analysis, electronics, embedded systems, and control systems. I also have experience designing and hand-soldering PCBs as well as using PIC and Atmel microcontrollers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-pencil text-primary sr-icons"></i>
+                        <h3>Technical Writing</h3>
+                        <p class="text-muted">Working as a network engineer, creating and maintaining network documentation was among my chief responsibilities. Clear, concise, technical writing is a skill I have worked hard to develop.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-life-ring text-primary sr-icons"></i>
+                        <h3>Troubleshooting</h3>
+                        <p class="text-muted">To compliment my programming and technology skills, I demonstrate strong troubleshooting and problem solving skills using critical thinking and experimentation.</p>
+                    </div>
+                </div>                
+              </div>
+        </div>
+    </section>
+
+    <section class="bg-primary" id="education">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <h2 class="section-heading text-center">Education</h2>
+                    <hr class="light">
+                </div>
+            </div>
+        </div>
+
+       <div class="container">
+            
+            <!-- Row One -->
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <h4>North Dakota State University</h4>
+		    <p>Attended: <strong>January 2019 - May 2022</strong><br />
+		    Major: <strong>Electrical Engineering</strong><br />
+		    Minor: <strong>Biomedical Engineering</strong><br />
+		    <p>I went to NDSU in 2019 to pursue a bachelor's degree in electrical engineering. While studying electrical engineering and looking at available career paths and research topics, I developed an interest in the multidiciplinary opportunities within electrical engineering. I added a minor in biomedical engineering so that I could learn more about biological systems and the use of electrical engineering in biosensors and medical devices.</p>
+		</div>
+            </div>
+           
+           <!-- Row Two -->
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <h4>University of California - Irvine</h4>
+                    <p>Attended:  <strong>September 2017 - June 2018</strong><br />
+                    Major: <strong>Computer Science and Engineering</strong><br />
+                    <p>At UC Irvine I was involved in Engineers for a Sustainable World.  I also led a team to win the freshman quad-copter building competition. While transferring from UC Irvine to NDSU, I spent 6 months working full time at Target, before returning to univeristy during the spring semester 2019.</p>
+                </div>
+            </div>
+
+	    <!-- Row Threee -->
+	    <div class="row">
+		<div class="col-lg-12 col-sm-12">
+		    <h4>Farmington High School</h4>
+                    <p>Graduated: <strong>June 2017</strong><br />
+                    GPA: <strong>4.1</strong><br />
+                    ACT: <strong>32</strong><br />
+                    SAT: <strong>1380</strong></p>
+                    <p>I took 6 AP courses and four college courses through nearby universitites during my junior and senior years.  I was a member of the National Honor Society and the captain of the Mock Trial team.  In addition to schoolwork, I pursued learning about computers and programming through online resources and books.</p>
+	</div>
+	    </div>
+        </div>
+    </section>
+    
+    
+    <!-- Section Five -->
+    <section class="" id="work">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <h2 class="section-heading text-center">Work Experience</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+ 
+	    <!-- Row Negative One -->
+	    <div class="row">
+	        <div class="col-lg-12 col-sm-12">    
+		    <h4>Electrical Engineer</h4>
+		    <p><strong>BAE Systems </strong><br />
+		    April 2024 - Present</p>
+		</div>
+	    </div>
+
+	    <div class="row">
+	        <div class="col-lg-12 col-sm-12">    
+		    <h4>Test Engineer</h4>
+		    <p><strong>Keytronic</strong><br />
+		    July 2023 - Dec 2023</p>
+		    <p class="text-muted">I worked as a test engineer for Keytronic, a global printed circuit board manufacturer. I was responsible for designing automated solutions for in-circuit and functional PCB testing, as well as working with customers to ensure quality production.</p>
+		</div>
+	    </div>
+
+	    <!-- Row Zero -->
+	    <div class="row">
+	        <div class="col-lg-12 col-sm-12">    
+		    <h4>Product Engineer</h4>
+		    <p><strong>Critical Room Control</strong><br />
+		    July 2022 - April 2023</p>
+		    <p class="text-muted">I worked as a product engineer for Critical Room Control, a Milwaukee-based engineering firm specializing in critical room pressurization systems for hospitals and laboratories across the US. My role involved electrical hardware design, embedded software development, product testing, and writing techinical documentation. Specific expertise I gained on the job includes PCB design with Altium Designer, knowledge of the BAS communication protocol BACnet, and implementation of electronic controls using PID loops. Unfortunately, the Minneapolis office closed at the end of April 2023 after internal restructuring following the retirment of the branch director.</p>
+		</div>
+	    </div>
+	    
+	    <!-- Row One -->
+	    <div class="row">
+	        <div class="col-lg-12 col-sm-12">    
+		    <h4>Assistant Network Infrastructure Engineer</h4>
+		    <p><strong>NDSU Network Engineering and Operations</strong><br />
+		    July 2019 - May 2022</p>
+		    <p class="text-muted">I worked as an assistant network infrastructure engineer for the Network Engineering and Operations department at NDSU while pursing my degree in electrical engineering.  My responsibilities included assisting in setting up and maintaining NDSU's internet and telephone networks, configuring networking equipment, and troubleshooting issues with the network.  I was involved in several large projects such as a complete fiber optic core overhaul, replacing all campus wireless access points, and setting up networking devices in newly constructed buildings. </p>
+		</div>
+	    </div>
+
+	    <!-- Row Two -->
+	    <div class="row">
+		<div class="col-lg-12 col-sm-12">
+		    <h4>Help Desk Consultant</h4>
+		    <p><strong>NDSU IT Help Desk</strong><br />
+		    April 2019 - July 2019</p>
+		    <p class="text-muted">I worked as an IT Help Desk consultant for North Dakota State University's IT Help Desk.  My main tasks included assisting students and faculty with their campus accounts, setting up WiFi, and solving computer and phone problems.</p>
+		</div>
+	    </div>
+
+
+	    <!-- Row Three -->
+	    <div class="row">
+		<div class="col-lg-12 col-sm-12">
+		    <h4>Logistics Team Member</h4>
+		    <p><strong>Target</strong><br />
+		    June 2018 - January 2019</p>
+		    <p class="text-muted">I worked at Target in Ft. Collins, CO and Moorhead, MN on the flow (logistics) team. Tasks included unloading delivery trucks, stocking shelves, managing product in the backroom, and helping customers.</p>
+		</div>
+	    </div>
+	           
+            <!-- Row Four -->
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <h4>Teacher</h4>
+                    <p><strong>Computer Explorers</strong><br />
+                    May 2015 - August 2016</p>
+                    <p class="text-muted">Computer Explorers is a Twin Cities based company offering summer and after-school camps to elementary-aged kids. As an instructor, I taught video game building, Lego engineering, stop-motion animation, and Java/Python programming classes.</p>
+		    <a href="https://ameliapodolny.com"><a>
+                  
+                </div>
+            </div>
+        </div>    
+    </section>
+    <a href="https://ameliapodolny.com"></a> 
+    <a href="https://ameliapodolny.com"></a> 
+    <a href="https://ameliapodolny.com"></a> 
+
+    <!-- Section Six -->
+    <section class="bg-dark" id="connect">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <h2 class="section-heading text-center">Connect With Me</h2>
+                    <hr class="light">
+                    <p class="text-center">Interested in anything I'm doing or want to know more?<br /><br />
+                    
+                  <a href="mailto:gavinmallott@gmail.com"><i class="fa fa-envelope-o fa-2x sr-contact"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                  <a href="https://twitter.com/gavinmallott"><i class="fa fa-twitter fa-2x sr-contact"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                  <a href="http://linkedin.com/in/gavinmallott"><i class="fa fa-linkedin fa-2x sr-contact"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                  <a href="https://github.com/GavinMallott/"><i class="fa fa-github fa-2x sr-contact"></i></a>
+                  
+                  </p>
+                </div>
+
+        </div>
+    </section>
+    
+    
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/creative.js"></script>
+
+</body>
+
+</html>
