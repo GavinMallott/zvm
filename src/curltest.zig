@@ -3,30 +3,38 @@ const builtin = @import("builtin");
 const printf = std.debug.print;
 
 pub fn main() !void {
-    const url = "https://zig.linus.dev/zig/index.json";
-    const uri = try std.Uri.parse(url);
-    var buffer: [2048]u8 = undefined;
+    //const url = "https://zig.linus.dev/zig/index.json";
+    //const uri = try std.Uri.parse(url);
+    //var buffer: [2048]u8 = undefined;
     const ally = std.heap.page_allocator;
     const opt = JsonOptions{
-        .version = "0.14.0",
+        .version = "master",
         .os = "linux",
-        .arch = "x86-64",
+        .arch = "x86_64",
     };
 
-    _ = try read_uri_into_buffer(uri, buffer[0..]);
-    _ = try read_uri_into_file(uri, "index.json", ally);
-    _ = try select_zig_version_from_json("index.json", ally, opt);
+    //_ = try read_uri_into_buffer(uri, buffer[0..]);
+    //_ = try read_uri_into_file(uri, "index.json", ally);
+    const tarball = try select_zig_url_from_json("index.json", ally, opt);
+    defer ally.free(tarball);
+    printf("Selected: {s} for install.\n", .{tarball});
 
-    //printf("Downloaded to '{s}'\n", .{output_path});
+    const tarball2 = try select_zig_url_from_json("index.json", ally, .{
+        .version = "0.13.0",
+        .os = "macos",
+        .arch = "aarch64",
+    });
+    defer ally.free(tarball2);
+    printf("Selected: {s} for install.\n", .{tarball2});
 }
 
 pub const JsonOptions = struct {
-    version: []const u8 = "stable",
+    version: []const u8 = "0.14.1",
     os: []const u8 = @tagName(builtin.target.os.tag),
     arch: []const u8 = @tagName(builtin.target.cpu.arch),
 };
 
-pub fn select_zig_version_from_json(
+pub fn select_zig_url_from_json(
     filename: []const u8,
     allocator: std.mem.Allocator,
     opt: JsonOptions,
@@ -41,20 +49,19 @@ pub fn select_zig_version_from_json(
     defer parsed.deinit();
 
     var root = parsed.value;
-    
-    var root_it = root.object.iterator();
-    while(root_it.next()) |node| {
-        printf("{s}\n", .{node.key_ptr.*});
-        //node.value_ptr.*.dump();
-        //printf("\n", .{});
-    }
 
-    var version_name: [128]u8 = undefined;
+    var tmp: [128]u8 = undefined;
+    const arch_os = try std.fmt.bufPrint(tmp[0..], "{s}-{s}", .{opt.arch, opt.os});
 
-    const version_slice = try std.fmt.bufPrint(version_name[0..], "https://ziglang.org/builds/{s}.tar.xz", .{opt.version});
-    printf("Requested Version: {s}\n", .{version_slice});
-    return version_slice;
-
+    if (root.object.contains(opt.version)) {
+        const version = root.object.get(opt.version).?;
+        if (version.object.contains(arch_os)) {
+            const arch_os_v = version.object.get(arch_os).?;
+            const tarball = arch_os_v.object.get("tarball").?;
+            const tarball_str = tarball.string;
+            return try allocator.dupe(u8, tarball_str);
+        } else return "Target not found.";
+    } else return "Version not found.";
 }
 
 pub fn read_uri_into_buffer(uri: std.Uri, buffer: []u8) !usize {
