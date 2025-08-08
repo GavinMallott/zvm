@@ -26,6 +26,10 @@ pub fn main() !void {
     });
     defer ally.free(tarball2);
     printf("Selected: {s} for install.\n", .{tarball2});
+
+    const tarball3 = try select_zig_url_from_json("index.json", ally, .{});
+    defer ally.free(tarball3);
+    printf("Selected: {s} for install.\n", .{tarball3});
 }
 
 pub const JsonOptions = struct {
