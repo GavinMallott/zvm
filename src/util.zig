@@ -107,6 +107,30 @@ pub fn read_uri_into_file(uri: std.Uri, filename: []const u8, allocator: std.mem
     return n;
 }
 
+pub fn file_exists(path: []const u8) bool {
+    const cwd = std.fs.cwd();
+    const res = cwd.openFile(path, .{});
+    if (res) |file| {
+        file.close();
+        return true;
+    } else |err| {
+        printf("{}.\n", .{err});
+        return false;
+    }
+
+}
+
+pub fn dir_exists(path: []const u8) bool {
+    const cwd = std.fs.cwd();
+    const res = cwd.openDir(path, .{});
+    if (res) |dir| {
+        dir.close();
+        return true;
+    } else |err| {
+        printf("{}.\n", .{err});
+        return false;
+    }
+}
 // test "uri and json" {
 //     const url = "https://zig.linus.dev/zig/index.json";
 //     const uri = try std.Uri.parse(url);

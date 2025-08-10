@@ -1,5 +1,5 @@
 const std = @import("std");
-const util = @import("uri.zig");
+const util = @import("util.zig");
 const printf = std.debug.print;
 const JsonOptions = util.JsonOptions;
 
@@ -96,9 +96,13 @@ pub fn zvm_version_list(self: *ZVM) !void {
     
 }
 
-pub fn zvm_install_version(self: *ZVM, opt: JsonOptions) !void {
+pub fn update_index_json(self: *ZVM, uri: std.Uri, ally: std.mem.Allocator) !void {
     _ = self;
-    const ally = std.heap.page_allocator;
+    _ = try util.read_uri_into_file(uri, "index.json", ally);
+}
+
+pub fn zvm_download_tarball(self: *ZVM, ally: std.mem.Allocator, opt: JsonOptions) !void {
+    _ = self;
 
     printf("Looking for zig version {s} for {s}-{s}.\n", .{opt.version, opt.arch, opt.os});
 
@@ -116,23 +120,44 @@ pub fn zvm_install_version(self: *ZVM, opt: JsonOptions) !void {
 
 }
 
-
-test "json parse" {
-    printf("Json Parsing Test\n", .{});
-    printf("=====================================================\n", .{});
-    var z = ZVM.init();
-
-    try z.update_mirrors();
-    try z.zvm_version_list();
+pub fn zvm_install_tarball(self: *ZVM, path: []const u8, ally: std.mem.Allocator) !void {
+    _ = self;
+    printf("Unpacking tarball: {s}.\n", .{path});
+    const argv = [_][]const u8 {
+        "tar",
+        "-xvf",
+        path,
+    };
+    try subprocess_call(&argv, ally);
+    printf("Successfully Installed New Zig Version!\n", .{});
 }
-test "zvm install" {
-    printf("ZVM Install Test\n", .{});
-    printf("=====================================================\n", .{});
+
+fn subprocess_call(argv: []const []const u8, ally: std.mem.Allocator) !void {
+    var child = std.process.Child.init(argv, ally);
+    try child.spawn();
+    _ = try child.wait();
+}
+
+
+test "install" {
+    const ally = std.heap.page_allocator;
     var z = ZVM.init();
-    const options: JsonOptions = .{
+    
+    if (!util.file_exists("index.json")){ 
+        const mirror_uri = try std.Uri.parse("https://zig.linus.dev/zig/index.json");
+        try z.update_index_json(mirror_uri, ally);
+    }
+
+
+    const opt: JsonOptions = .{
         .version = "0.13.0",
         .arch = "x86_64",
         .os = "linux",
     };
-    try z.zvm_install_version(options);
+    const tarball = "zig-linux-x86_64-0.13.0.tar.xz";
+    if (!util.file_exists(tarball) {
+        try z.zvm_download_tarball(ally, opt);
+    }
+    
+    try z.zvm_install_tarball(tarball, ally);
 }
