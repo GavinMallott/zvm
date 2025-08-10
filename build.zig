@@ -19,6 +19,7 @@ pub fn build(b: *std.Build) void {
         }),
     });
 
+    exe.linkSystemLibrary("libc");
     exe.linkSystemLibrary("curl");
 
 
